@@ -7,19 +7,9 @@
 		<servlet-class>servlets.user.CreateUser</servlet-class>
 	</servlet>
 	
-	<servlet>
-		<servlet-name>sql</servlet-name>
-		<servlet-class>servlets.selectMYSQL</servlet-class>
-	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>CreateUser</servlet-name>
 		<url-pattern>/CreateUser</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>sql</servlet-name>
-		<url-pattern>/select</url-pattern>
 	</servlet-mapping>
 	
 	<resource-ref>
