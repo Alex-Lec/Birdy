@@ -12,7 +12,7 @@ public class DBTest {
 		try {
 			Connection c = Database.getMySQLConnection();
 			Statement stmt = c.createStatement();
-			String query = "INSERT INTO user (login_user, password_user, prenom_user, nom_user, mail_user) VALUES ('Alex', '1234', 'Alexis', 'LECUYER', 'alexislecuyer14@gmail.com')";
+			String query = "SELECT * FROM user";
 			ResultSet res = stmt.executeQuery(query);
 			System.out.println(res.toString());
 			res.close();

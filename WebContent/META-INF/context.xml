@@ -4,5 +4,5 @@
 	maxActive="10" maxIdle="30"  maxWait="10000"
 	url="jdbc:mysql://localhost/birdy_db"
 	driverClassName="com.mysql.cj.jdbc.Driver"
-	username="birdy_db" password="password" />
+	username="root" password="" />
 </Context>

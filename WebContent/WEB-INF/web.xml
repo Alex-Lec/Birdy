@@ -7,9 +7,59 @@
 		<servlet-class>servlets.user.CreateUser</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>DeleteUser</servlet-name>
+		<servlet-class>servlets.user.DeleteUser</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>servlets.authentification.Login</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>servlets.authentification.Logout</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AddFriend</servlet-name>
+		<servlet-class>servlets.friends.AddFriend</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RemoveFriend</servlet-name>
+		<servlet-class>servlets.friends.RemoveFriend</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>CreateUser</servlet-name>
 		<url-pattern>/CreateUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DeleteUser</servlet-name>
+		<url-pattern>/DeleteUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AddFriend</servlet-name>
+		<url-pattern>/AddFriend</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RemoveFriend</servlet-name>
+		<url-pattern>/RemoveFriend</url-pattern>
 	</servlet-mapping>
 	
 	<resource-ref>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<Context>
-	<Resource name="jdbc/db" type="javax.sql.DataSource" 
-	username="alexis" password="password"
-	maxActive="10" maxIdle="30"  maxWait="10000"
-	url="jdbc:mysql://localhost:64574/birdy_db"
-	driverClassName="com.mysql.cj.jdbc.Driver"
-	username="alexis" password="password" />
-</Context>

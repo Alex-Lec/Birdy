@@ -9,34 +9,31 @@ import org.json.JSONObject;
 
 public class UserTools {
 	public static JSONObject createUser(String login_user, String password_user, String prenom_user, String nom_user, String mail_user) {
-		try {
-			Connection c = db.Database.getMySQLConnection();
-			Statement stmt = c.createStatement();
-			String query = "INSERT INTO user (login_user, password_user, prenom_user, nom_user, mail_user) VALUES ('" + login_user + "', '" + password_user + "', '" + prenom_user + "', '" + nom_user + "', '" + mail_user + "')";
+		String query = "INSERT INTO user (login_user, password_user, prenom_user, nom_user, mail_user) VALUES ('" + login_user + "', '" + password_user + "', '" + prenom_user + "', '" + nom_user + "', '" + mail_user + "')";
+		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement()) { 
 			stmt.executeUpdate(query);
-			stmt.close();
-			c.close();
 		} catch(SQLException e) {
-			return tools.ErrorJSON.serviceRefused("Impossible de créer l'utilisateur", 1000);
+			return tools.ErrorJSON.serviceRefused("SQL error createUser", 1000);
 		}
 		return tools.ErrorJSON.serviceAccepted();
 	}
-	/*
+	
+	public static JSONObject deleteUser(int id_user) {
+		String query = "DELETE FROM user WHERE id_user = '" + id_user + "'";
+		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement()) { 
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			return tools.ErrorJSON.serviceRefused("SQL error deleteUser", 1000);
+		}
+		return tools.ErrorJSON.serviceAccepted();
+	}
+
 	public static JSONObject isUserExist(String login_user) {
-		try {
-			Connection c = db.Database.getMySQLConnection();
-			Statement stmt = c.createStatement();
-			String query = "SELECT login_user FROM user WHERE login_user = '" + login_user + "'";
-			ResultSet res = stmt.executeQuery(query);
+		String query = "SELECT login_user FROM user WHERE login_user = '" + login_user + "'";
+		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement(); ResultSet res = stmt.executeQuery(query)) { 
 			if (res.next()) {
-				res.close();
-				stmt.close();
-				c.close();
 				return new JSONObject().put("isUserExist", true);
 			}
-			res.close();
-			stmt.close();
-			c.close();
 			return new JSONObject ().put("isUserExist", false);
 		} catch(SQLException |JSONException e) {
 			if (e.getClass() == SQLException.class) {
@@ -45,25 +42,32 @@ public class UserTools {
 			return tools.ErrorJSON.serviceRefused("JSON error isUserExist", 100);
 		}
 	}
-	*/
-	public static boolean isUserExist(String login_user) {
-		try {
-			Connection c = db.Database.getMySQLConnection();
-			Statement stmt = c.createStatement();
-			String query = "SELECT login_user FROM user WHERE login_user = '" + login_user + "'";
-			ResultSet res = stmt.executeQuery(query);
+	
+	public static JSONObject isUserExist(int id_user) {
+		String query = "SELECT id_user FROM user WHERE id_user = '" + id_user + "'";
+		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement(); ResultSet res = stmt.executeQuery(query)) { 
 			if (res.next()) {
-				res.close();
-				stmt.close();
-				c.close();
-				return true;
+				return new JSONObject().put("isUserExist", true);
 			}
-			res.close();
-			stmt.close();
-			c.close();
-		} catch(SQLException e) {
-			e.printStackTrace();
+			return new JSONObject ().put("isUserExist", false);
+		} catch(SQLException |JSONException e) {
+			if (e.getClass() == SQLException.class) {
+				return tools.ErrorJSON.serviceRefused("Erreur de connexion à la base de données", 1000);
+			}
+			return tools.ErrorJSON.serviceRefused("JSON error isUserExist", 100);
 		}
-		return false;
+	}
+	
+	public static JSONObject getId(String login_user) {
+		String query = "SELECT * FROM user WHERE login_user = '" + login_user + "'";
+		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement(); ResultSet res = stmt.executeQuery(query)) { 
+			res.next();
+			return new JSONObject().put("id_user", res.getInt(1));
+		} catch(SQLException | JSONException e) {
+			if (e.getClass() == SQLException.class) {
+				return tools.ErrorJSON.serviceRefused("SQL error getId", 1000);
+			}
+			return tools.ErrorJSON.serviceRefused("JSON error getId", 100);
+		}
 	}
 }
