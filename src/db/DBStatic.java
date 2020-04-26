@@ -6,5 +6,5 @@ public class DBStatic {
 	public static String mysql_user = "root";
 	public static String mysql_password = "";
 	public static boolean pooling = false;
-	//public static String mongo_db = "";
+	public static String mongo_db = "birdy_db";
 }

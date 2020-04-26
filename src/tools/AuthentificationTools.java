@@ -70,4 +70,19 @@ public class AuthentificationTools {
 			return tools.ErrorJSON.serviceRefused("JSON error isSessionActive", 100);
 		}
 	}
+	
+	public static JSONObject isUserConnected(String key_session, int id_user) {
+		String query = "SELECT * FROM session WHERE key_session = '" + key_session + "' AND id_user = '" + id_user + "'";
+		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement(); ResultSet res = stmt.executeQuery(query)) {
+			if (res.next()) {
+				return new JSONObject().put("isUserConnected", true);
+			}
+			return new JSONObject().put("isUserConnected", false);
+		} catch(SQLException | JSONException e) {
+			if (e.getClass() == SQLException.class) {
+				return tools.ErrorJSON.serviceRefused("SQL error isUserConnected", 1000);
+			}
+			return tools.ErrorJSON.serviceRefused("JSON error isUserConnected", 100);
+		}
+	}
 }

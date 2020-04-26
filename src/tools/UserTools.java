@@ -28,18 +28,18 @@ public class UserTools {
 		return tools.ErrorJSON.serviceAccepted();
 	}
 
-	public static JSONObject isUserExist(String login_user) {
+	public static JSONObject isLoginExist(String login_user) {
 		String query = "SELECT login_user FROM user WHERE login_user = '" + login_user + "'";
 		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement(); ResultSet res = stmt.executeQuery(query)) { 
 			if (res.next()) {
-				return new JSONObject().put("isUserExist", true);
+				return new JSONObject().put("isLoginExist", true);
 			}
-			return new JSONObject ().put("isUserExist", false);
+			return new JSONObject ().put("isLoginExist", false);
 		} catch(SQLException |JSONException e) {
 			if (e.getClass() == SQLException.class) {
-				return tools.ErrorJSON.serviceRefused("Erreur de connexion à la base de données", 1000);
+				return tools.ErrorJSON.serviceRefused("SQL error isLoginExist", 1000);
 			}
-			return tools.ErrorJSON.serviceRefused("JSON error isUserExist", 100);
+			return tools.ErrorJSON.serviceRefused("JSON error isLoginExist", 100);
 		}
 	}
 	
@@ -68,6 +68,25 @@ public class UserTools {
 				return tools.ErrorJSON.serviceRefused("SQL error getId", 1000);
 			}
 			return tools.ErrorJSON.serviceRefused("JSON error getId", 100);
+		}
+	}
+	
+	public static JSONObject getProfile(int id_user) {
+		String query = "SELECT * FROM user WHERE id_user = '" + id_user + "'";
+		JSONObject json = new JSONObject();
+		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement(); ResultSet res = stmt.executeQuery(query)) { 
+			res.next();
+			json.put("id_user", res.getInt(1));
+			json.put("login_user", res.getString(2));
+			json.put("prenom_user", res.getString(4));
+			json.put("nom_user", res.getString(5));
+			json.put("mail_user", res.getString(6));
+			return json;
+		} catch(SQLException | JSONException e) {
+			if (e.getClass() == SQLException.class) {
+				return tools.ErrorJSON.serviceRefused("SQL error getProfile", 1000);
+			}
+			return tools.ErrorJSON.serviceRefused("JSON error getProfileTools", 100);
 		}
 	}
 }

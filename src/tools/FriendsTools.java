@@ -36,11 +36,33 @@ public class FriendsTools {
 				return new JSONObject().put("isFriendshipExist", true);
 			}
 			return new JSONObject().put("isFriendshipExist", false);
-		} catch(SQLException |JSONException e) {
+		} catch(SQLException | JSONException e) {
 			if (e.getClass() == SQLException.class) {
 				return tools.ErrorJSON.serviceRefused("SQL error isFriendshipExist", 1000);
 			}
 			return tools.ErrorJSON.serviceRefused("JSON error isFriendshipExist", 100);
+		}
+	}
+	
+	public static JSONObject getListFriend(int id_user) {
+		String query = "SELECT * FROM friendship WHERE id_user_1 = '" + id_user + "' OR id_user_2 = '" + id_user + "'";
+		JSONObject json = new JSONObject();
+		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement(); ResultSet res = stmt.executeQuery(query)) {
+			int cpt = 1;
+			while (res.next()) {
+				if (res.getInt(1) == id_user) {
+					json.put("Friend n°" + cpt++, tools.UserTools.getProfile(res.getInt(2)));
+				}
+				else {
+					json.put("Friend n°" + cpt++, tools.UserTools.getProfile(res.getInt(1)));
+				}
+			}
+			return json;
+		} catch(SQLException | JSONException e) {
+			if (e.getClass() == SQLException.class) {
+				return tools.ErrorJSON.serviceRefused("SQL error tools.getListFriend", 1000);
+			}
+			return tools.ErrorJSON.serviceRefused("JSON error tools.getListFriend", 100);
 		}
 	}
 }

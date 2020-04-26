@@ -4,12 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.sql.DataSource;
-/*
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoClient;
-*/
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -60,10 +57,8 @@ public class Database {
 		}
 	}
 	
-	/*
 	public static MongoDatabase getMongoDBConnection()  {
 		MongoClient mongo = MongoClients.create();
-		return mongo.getDatabase(DBStatic.mongo_bd);
+		return mongo.getDatabase(DBStatic.mongo_db);
 	}
-	*/
 }

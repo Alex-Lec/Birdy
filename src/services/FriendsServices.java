@@ -25,4 +25,16 @@ public class FriendsServices {
 			return tools.ErrorJSON.serviceRefused("JSON error addFriend", 100);
 		}
 	}
+	
+	public static JSONObject getListFriend(String login_user) {
+		try {
+			if (tools.UserTools.isLoginExist(login_user).getBoolean("isLoginExist")) {
+				int id_user = tools.UserTools.getId(login_user).getInt("id_user");
+				return tools.FriendsTools.getListFriend(id_user);
+			}
+			return tools.ErrorJSON.serviceRefused("Arguments error services.getListFriend", -1);
+		} catch(JSONException e) {
+			return tools.ErrorJSON.serviceRefused("JSON error services.getListFriendServices", 100);
+		}
+	}
 }
