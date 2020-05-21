@@ -12,8 +12,8 @@ public class ProfileTest {
 		JSONObject json = new JSONObject();
 		//StringBuilder sb = new StringBuilder();
 		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement()) {
-			System.out.println(tools.UserTools.isLoginExist("Alex"));
-			int id = tools.UserTools.getId("Alex").getInt("id_user");
+			System.out.println(tools.UserTools.isLoginExist("Alex", stmt));
+			int id = tools.UserTools.getId("Alex", stmt).getInt("id_user");
 			System.out.println(id);
 			String query = "SELECT * FROM user WHERE id_user = '" + id + "'";
 			ResultSet res = stmt.executeQuery(query);

@@ -1,24 +1,29 @@
 package test;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import db.Database;
+import javax.naming.*;
+import javax.sql.*;
+import java.sql.*;
 
 public class DBTest {
-	public static void main(String args[]) {
+	
+	
+	public static void init() {
 		try {
-			Connection c = Database.getMySQLConnection();
-			Statement stmt = c.createStatement();
-			String query = "SELECT * FROM user";
-			ResultSet res = stmt.executeQuery(query);
-			System.out.println(res.toString());
-			res.close();
-			stmt.close();
-			c.close();
-		} catch(SQLException e) {
+			Context ctx = new InitialContext();
+			if (ctx == null) throw new Exception("Boom");
+			DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/bd");
+			if (ds != null) {
+				Connection conn = ds.getConnection();
+				if (conn != null) {
+					Statement stmt = conn.createStatement();
+					ResultSet rst = stmt.executeQuery("SELECT * FROM user");
+					if (rst.next()) {
+						System.out.println("OK !");
+					}
+					conn.close();
+				}
+			}
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
