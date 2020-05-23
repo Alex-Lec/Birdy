@@ -12,7 +12,7 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
 public class MessageTools {
-	public static JSONObject addMessage(int id_user, String login_user, String text) {
+	public static void addMessage(int id_user, String login_user, String text) {
 		MongoDatabase database = db.Database.getMongoDBConnection();
 		MongoCollection<Document> message = database.getCollection("message");
 		
@@ -23,8 +23,7 @@ public class MessageTools {
 		query.append("Text", text);
 		
 		message.insertOne(query);
-		
-		return tools.ErrorJSON.serviceAccepted();
+			
 	}
 	
 	public static JSONObject listMessage(int id_user) {

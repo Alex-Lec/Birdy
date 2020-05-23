@@ -13,6 +13,11 @@
 	</servlet>
 	
 	<servlet>
+		<servlet-name>EditUser</servlet-name>
+		<servlet-class>servlets.user.EditUser</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>ProfileUser</servlet-name>
 		<servlet-class>servlets.user.ProfileUser</servlet-class>
 	</servlet>
@@ -60,6 +65,11 @@
 	<servlet-mapping>
 		<servlet-name>DeleteUser</servlet-name>
 		<url-pattern>/DeleteUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>EditUser</servlet-name>
+		<url-pattern>/EditUser</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>

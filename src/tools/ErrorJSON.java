@@ -17,7 +17,6 @@ public class ErrorJSON {
 		try {
 			return new JSONObject().put("OK", 1);
 		} catch(JSONException e) {
-			e.printStackTrace();
 			return serviceRefused("Erreur JSON", 100);
 		}
 	}
