@@ -2,9 +2,10 @@ package tools;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Statement; 
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class FriendsTools {
 	public static boolean addFriend(int id_user_1, int id_user_2, Statement stmt) throws SQLException {
@@ -33,19 +34,15 @@ public class FriendsTools {
 		return false;
 	}
 	
-	public static List<Integer> getListIdFriend(int id_user, Statement stmt) throws SQLException {
-		String query = "SELECT * FROM friendship WHERE id_user_1 = '" + id_user + "' OR id_user_2 = '" + id_user + "'";
-		List<Integer> listUserId = new ArrayList<>();
+	public static JSONObject getListFriend(int id_user, Statement stmt) throws SQLException, JSONException {
+		String query = "SELECT * FROM friendship WHERE id_user_1 = '" + id_user + "'";
+		JSONObject json = new JSONObject();
 		try (ResultSet res = stmt.executeQuery(query)) {
+			int cpt = 1;
 			while (res.next()) {
-				if (res.getInt("id_user_1") == id_user) {
-					listUserId.add(res.getInt("id_user_2"));
-				}
-				else {
-					listUserId.add(res.getInt("id_user_1"));
-				}
+				json.put("Friend n°" + cpt++, res.getInt("id_user_2"));
 			}
 		}
-		return listUserId;
+		return json;
 	}
 }

@@ -12,10 +12,9 @@ import org.json.JSONObject;
 @SuppressWarnings("serial")
 public class ListLike extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String key_session = request.getParameter("key_session");
 		ObjectId objectId = new ObjectId(request.getParameter("objectId"));
 		
-		JSONObject json = services.MessageServices.listLike(key_session, objectId);
+		JSONObject json = services.MessageServices.listLike(objectId);
 		
 		response.setContentType("text/json");
 		response.getWriter().println(json.toString());

@@ -11,7 +11,7 @@ import org.json.JSONObject;
 
 @SuppressWarnings("serial")
 public class EditUser extends HttpServlet {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String key_session = request.getParameter("key_session");
 		String login_user = request.getParameter("login_user");
 		String password_user = request.getParameter("password_user");

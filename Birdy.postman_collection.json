@@ -1,0 +1,1309 @@
+{
+	"info": {
+		"_postman_id": "e982f607-b266-4979-9092-05c59b903dd4",
+		"name": "Birdy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "CreateUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0ed7647d-3466-4776-8df8-2de3df658527",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/CreateUser?login_user=user_1&password_user=passsword_user_1&prenom_user=first_name_user_1&nom_user=last_name_user_1&mail_user=user_1@gmail.com",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"CreateUser"
+							],
+							"query": [
+								{
+									"key": "login_user",
+									"value": "user_1"
+								},
+								{
+									"key": "password_user",
+									"value": "passsword_user_1"
+								},
+								{
+									"key": "prenom_user",
+									"value": "first_name_user_1"
+								},
+								{
+									"key": "nom_user",
+									"value": "last_name_user_1"
+								},
+								{
+									"key": "mail_user",
+									"value": "user_1@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e5ba0f74-567b-4b10-82d7-5662c8ea6943",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/CreateUser?login_user=user_2&password_user=passsword_user_2&prenom_user=first_name_user_2&nom_user=last_name_user_2&mail_user=user_2@gmail.com",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"CreateUser"
+							],
+							"query": [
+								{
+									"key": "login_user",
+									"value": "user_2"
+								},
+								{
+									"key": "password_user",
+									"value": "passsword_user_2"
+								},
+								{
+									"key": "prenom_user",
+									"value": "first_name_user_2"
+								},
+								{
+									"key": "nom_user",
+									"value": "last_name_user_2"
+								},
+								{
+									"key": "mail_user",
+									"value": "user_2@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "136eea22-37e3-4f48-a457-8e4396c97122",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/CreateUser?login_user=user_3&password_user=passsword_user_3&prenom_user=first_name_user_3&nom_user=last_name_user_3&mail_user=user_3@gmail.com",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"CreateUser"
+							],
+							"query": [
+								{
+									"key": "login_user",
+									"value": "user_3"
+								},
+								{
+									"key": "password_user",
+									"value": "passsword_user_3"
+								},
+								{
+									"key": "prenom_user",
+									"value": "first_name_user_3"
+								},
+								{
+									"key": "nom_user",
+									"value": "last_name_user_3"
+								},
+								{
+									"key": "mail_user",
+									"value": "user_3@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8b6e70dd-9861-4051-87a0-a62f38c6534c",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/DeleteUser?id_user=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"DeleteUser"
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "093635e9-d26c-4cbf-a07b-1bcc7aba93e3",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/DeleteUser?id_user=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"DeleteUser"
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8614fda1-c5a4-4d7d-bb78-5b6e2841b8f7",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/EditUser?key_session={{key_session_user_1}}&login_user=login_edit&password_user=password_edit&prenom_user=prenom_edit&nom_user=nom_edit&mail_user=login_edit@gmail.com",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"EditUser"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "{{key_session_user_1}}"
+								},
+								{
+									"key": "login_user",
+									"value": "login_edit"
+								},
+								{
+									"key": "password_user",
+									"value": "password_edit"
+								},
+								{
+									"key": "prenom_user",
+									"value": "prenom_edit"
+								},
+								{
+									"key": "nom_user",
+									"value": "nom_edit"
+								},
+								{
+									"key": "mail_user",
+									"value": "login_edit@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProfileUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d87082bf-b847-4d88-a65b-b8e059553dad",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ProfileUser?login_user=user_1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ProfileUser"
+							],
+							"query": [
+								{
+									"key": "login_user",
+									"value": "user_1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authentification",
+			"item": [
+				{
+					"name": "LoginUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f51cef9f-9447-4774-8905-038629f598ad",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Login?login_user=user_1&password_user=password_user_1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Login"
+							],
+							"query": [
+								{
+									"key": "login_user",
+									"value": "user_1"
+								},
+								{
+									"key": "password_user",
+									"value": "password_user_1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginUser2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4d727875-f62d-498a-b264-76338a6e4e1e",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Login?login_user=user_2&password_user=password_user_2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Login"
+							],
+							"query": [
+								{
+									"key": "login_user",
+									"value": "user_2"
+								},
+								{
+									"key": "password_user",
+									"value": "password_user_2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginUser3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "990cc031-91fc-4310-9467-208284204c14",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Login?login_user=user_3&password_user=password_user_3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Login"
+							],
+							"query": [
+								{
+									"key": "login_user",
+									"value": "user_3"
+								},
+								{
+									"key": "password_user",
+									"value": "password_user_3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LogoutUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e021be5e-4cfb-4ce2-bc46-dfd72ac8f884",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Logout?key_session={{key_session_user_1}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Logout"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "{{key_session_user_1}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LogoutUser2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71036652-4195-4b9f-a823-bc7deb80b7b8",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/Logout?key_session={{key_session_user_2}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Logout"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "{{key_session_user_2}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Friendship",
+			"item": [
+				{
+					"name": "CreateFriendshipUser1User2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88f33cdb-938a-48db-a710-79af1af03941",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/AddFriend?id_user_1=1&id_user_2=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"AddFriend"
+							],
+							"query": [
+								{
+									"key": "id_user_1",
+									"value": "1"
+								},
+								{
+									"key": "id_user_2",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateFriendshipUser1User3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "77ffc19a-bbb1-4801-bc9c-e9f279035d13",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/AddFriend?id_user_1=1&id_user_2=3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"AddFriend"
+							],
+							"query": [
+								{
+									"key": "id_user_1",
+									"value": "1"
+								},
+								{
+									"key": "id_user_2",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateFriendshipUser2User1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c3e77732-5b81-4a30-a3da-c581ff3832db",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/AddFriend?id_user_1=2&id_user_2=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"AddFriend"
+							],
+							"query": [
+								{
+									"key": "id_user_1",
+									"value": "2"
+								},
+								{
+									"key": "id_user_2",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListFriendsUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "54dd988d-e9f9-4dc0-8a19-35cda397249b",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ListFriend?login_user=user_1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ListFriend"
+							],
+							"query": [
+								{
+									"key": "login_user",
+									"value": "user_1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListFriendsUser2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2381f3c5-f6c8-4a26-be1d-ee6660dc2dc3",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ListFriend?login_user=user_2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ListFriend"
+							],
+							"query": [
+								{
+									"key": "login_user",
+									"value": "user_2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteFriendshipUser1User2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27848d54-03cf-4835-a511-303651f3eb91",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/RemoveFriend?id_user_1=1&id_user_2=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"RemoveFriend"
+							],
+							"query": [
+								{
+									"key": "id_user_1",
+									"value": "1"
+								},
+								{
+									"key": "id_user_2",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "MessageUser1_msg1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ca1a7a98-2384-4375-8621-70c6503cbcf0",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/AddMessage?key_session={{key_session_user_1}}&text=Ceci est le premier message",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"AddMessage"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "{{key_session_user_1}}"
+								},
+								{
+									"key": "text",
+									"value": "Ceci est le premier message"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MessageUser1_msg2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b8170420-fee7-436d-b451-ca29e530b272",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/AddMessage?key_session={{key_session_user_1}}&text=Ceci est le second message",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"AddMessage"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "{{key_session_user_1}}"
+								},
+								{
+									"key": "text",
+									"value": "Ceci est le second message"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditMessage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c0d05ed5-4a5c-4775-bf2c-5c32bfea486a",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/EditMessage?key_session={{key_session_user_1}}&objectId={{objectId_msg_1}}&text=Ceci est un message modifé",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"EditMessage"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "{{key_session_user_1}}"
+								},
+								{
+									"key": "objectId",
+									"value": "{{objectId_msg_1}}"
+								},
+								{
+									"key": "text",
+									"value": "Ceci est un message modifé"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoveMessage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6303bdbc-00d8-41a2-b18d-bc01dac7241f",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/RemoveMessage?key_session={{key_session_user_1}}&objectId={{objectId_msg}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"RemoveMessage"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "{{key_session_user_1}}"
+								},
+								{
+									"key": "objectId",
+									"value": "{{objectId_msg}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListMessageUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1765978e-e6ad-4b04-ab7a-ec3e525265d7",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ListUserMessage?id_user=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ListUserMessage"
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMessage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "307601c3-8538-494f-b372-8f68a19c32df",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/GetMessage?objectId={{objectId_msg}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"GetMessage"
+							],
+							"query": [
+								{
+									"key": "objectId",
+									"value": "{{objectId_msg}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "AddComment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "16d375cb-001c-4c33-9e93-1821b53458e0",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/AddComment?key_session={{key_session_user_2}}&objectId={{objectId_msg_1}}&text=Ceci est un commentaire",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"AddComment"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "{{key_session_user_2}}"
+								},
+								{
+									"key": "objectId",
+									"value": "{{objectId_msg_1}}"
+								},
+								{
+									"key": "text",
+									"value": "Ceci est un commentaire"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoveComment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "81408f5c-45ac-4214-aa20-78652c0d6c47",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Birdy/RemoveComment?key_session=CV9lqGLMt4OxCEbo87lIf7BnDs1j2WuO&objectId_message=5ecab6963d2f7b5284339f68&objectId_comment=5ecac84c3b79345e335fd940",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Birdy",
+								"RemoveComment"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "CV9lqGLMt4OxCEbo87lIf7BnDs1j2WuO"
+								},
+								{
+									"key": "objectId_message",
+									"value": "5ecab6963d2f7b5284339f68"
+								},
+								{
+									"key": "objectId_comment",
+									"value": "5ecac84c3b79345e335fd940"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditComment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/EditComment?key_session={{key_session_user_2}}&objectId_message={{objectId_msg_1}}&objectId_comment={{objectId_comment_1}}&text=Ceci est un commentaire modifié",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"EditComment"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "{{key_session_user_2}}"
+								},
+								{
+									"key": "objectId_message",
+									"value": "{{objectId_msg_1}}"
+								},
+								{
+									"key": "objectId_comment",
+									"value": "{{objectId_comment_1}}"
+								},
+								{
+									"key": "text",
+									"value": "Ceci est un commentaire modifié"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListComment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ListComment?objectId={{objectId_msg_1}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ListComment"
+							],
+							"query": [
+								{
+									"key": "objectId",
+									"value": "{{objectId_msg_1}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Like",
+			"item": [
+				{
+					"name": "AddLike",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d5072e6-05d2-47e9-8294-1e8f637c08d2",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/AddLike?key_session={{key_session_user_2}}&objectId={{objectId_msg_1}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"AddLike"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "{{key_session_user_2}}"
+								},
+								{
+									"key": "objectId",
+									"value": "{{objectId_msg_1}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoveLike",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5bb8f0c1-4cb9-443c-a896-903cc3f3622d",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Birdy/RemoveLike?key_session=CV9lqGLMt4OxCEbo87lIf7BnDs1j2WuO&objectId=5ecab6963d2f7b5284339f68",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Birdy",
+								"RemoveLike"
+							],
+							"query": [
+								{
+									"key": "key_session",
+									"value": "CV9lqGLMt4OxCEbo87lIf7BnDs1j2WuO"
+								},
+								{
+									"key": "objectId",
+									"value": "5ecab6963d2f7b5284339f68"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListLike",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/ListLike?objectId={{objectId_msg_1}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ListLike"
+							],
+							"query": [
+								{
+									"key": "objectId",
+									"value": "{{objectId_msg_1}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -3,7 +3,6 @@ package services;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,12 +41,8 @@ public class FriendsServices {
 	public static JSONObject getListFriend(String login_user) {
 		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement()) {
 			if (tools.UserTools.isLoginExist(login_user, stmt)) {
-				JSONObject json = new JSONObject();
-				List<Integer> friendsList = tools.FriendsTools.getListIdFriend(tools.UserTools.getId(login_user, stmt), stmt);
-				for (int id : friendsList) {
-					json.put("Friend n°" + (friendsList.indexOf(id) + 1), services.UserServices.getProfile(tools.UserTools.getLogin(id, stmt)));
-				}
-				return json;
+				int id = tools.UserTools.getId(login_user, stmt);
+				return tools.FriendsTools.getListFriend(id, stmt);
 			}
 			return tools.ErrorJSON.serviceRefused("Arguments error", -1);
 		} catch(JSONException | SQLException e) {

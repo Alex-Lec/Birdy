@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.bson.Document;
 import org.json.JSONObject;
+
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 
 public class UserServices {
 	public static JSONObject createUser(String login_user, String password_user, String prenom_user, String nom_user, String mail_user) {
@@ -59,7 +63,9 @@ public class UserServices {
 	public static JSONObject getProfile(String login_user) {
 		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement()) {
 			if (tools.UserTools.isLoginExist(login_user, stmt)) {
-				return tools.UserTools.getProfile(tools.UserTools.getId(login_user, stmt), stmt);
+				MongoDatabase database = db.Database.getMongoDBConnection();
+				MongoCollection<Document> message = database.getCollection("message");
+				return tools.UserTools.getProfile(tools.UserTools.getId(login_user, stmt), stmt, message);
 			}
 			return tools.ErrorJSON.serviceRefused("Arguments error", -1);
 		} catch(SQLException e) {

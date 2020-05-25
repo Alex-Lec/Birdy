@@ -112,6 +112,16 @@ public class MessageServices {
 		}
 	}
 	
+	public static JSONObject listComment(ObjectId objectId) {
+		try {
+			MongoDatabase database = db.Database.getMongoDBConnection();
+			MongoCollection<Document> message = database.getCollection("message");
+			return tools.MessageTools.listComment(objectId, message);
+		} catch(JSONException e) {
+			return tools.ErrorJSON.serviceRefused("JSON error : " + e.getMessage(), 100);
+		}
+	}
+	
 	public static JSONObject addLike(String key_session, ObjectId objectId) {
 		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement()) {
 			if (tools.AuthentificationTools.isSessionActive(key_session, stmt)) {
@@ -139,6 +149,16 @@ public class MessageServices {
 			return tools.ErrorJSON.serviceRefused("Arguments error", -1);
 		} catch(SQLException e) {
 			return tools.ErrorJSON.serviceRefused("SQL error : " + e.getMessage(), 1000);
+		}
+	}
+	
+	public static JSONObject listLike(ObjectId objectId) {
+		try {
+			MongoDatabase database = db.Database.getMongoDBConnection();
+			MongoCollection<Document> message = database.getCollection("message");
+			return tools.MessageTools.listLike(objectId, message);
+		} catch(JSONException e) {
+			return tools.ErrorJSON.serviceRefused("JSON error : " + e.getMessage(), 100);
 		}
 	}
 	

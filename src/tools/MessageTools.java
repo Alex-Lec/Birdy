@@ -86,6 +86,21 @@ public class MessageTools {
 		}
 	}
 	
+	public static JSONObject listComment(ObjectId objectId, MongoCollection<Document> collection) throws JSONException {
+		Document query = new Document().append("_id", objectId);
+		MongoCursor<Document> cursor = collection.find(query).iterator();
+		
+		JSONObject json = new JSONObject();
+		
+		if (cursor.hasNext()) {
+			List<Document> list = new ArrayList<>();
+			list.addAll(cursor.next().getList("Comments", Document.class));
+			json.put("Comments list", list);
+		}
+		
+		return json;
+	}
+	
 	public static void addLike(int id_user, ObjectId objectId, MongoCollection<Document> collection) {	
 		Document getMessageQuery = new Document().append("_id", objectId);
 		MongoCursor<Document> cursor = collection.find(getMessageQuery).iterator();
@@ -112,6 +127,21 @@ public class MessageTools {
 				
 			collection.updateOne(cursor.next(), query);
 		}
+	}
+	
+	public static JSONObject listLike(ObjectId objectId, MongoCollection<Document> collection) throws JSONException {
+		Document query = new Document().append("_id", objectId);
+		MongoCursor<Document> cursor = collection.find(query).iterator();
+		
+		JSONObject json = new JSONObject();
+		
+		if (cursor.hasNext()) {
+			List<Document> list = new ArrayList<>();
+			list.addAll(cursor.next().getList("Likes", Document.class));
+			json.put("List likes", list);
+		}
+		
+		return json;
 	}
 	
 	public static JSONObject listMessage(int id_user, MongoCollection<Document> collection) throws JSONException {

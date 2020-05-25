@@ -4,8 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.bson.Document;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.mongodb.client.MongoCollection;
 
 public class UserTools {
 	public static boolean createUser(String login_user, String password_user, String prenom_user, String nom_user, String mail_user, Statement stmt) throws SQLException {
@@ -72,7 +75,7 @@ public class UserTools {
 		return "";
 	}
 	
-	public static JSONObject getProfile(int id_user, Statement stmt) throws SQLException {
+	public static JSONObject getProfile(int id_user, Statement stmt, MongoCollection<Document> collection) throws SQLException {
 		String query = "SELECT * FROM user WHERE id_user = '" + id_user + "'";
 		JSONObject json = new JSONObject();
 		try (ResultSet res = stmt.executeQuery(query)) { 
@@ -82,6 +85,8 @@ public class UserTools {
 				json.put("prenom_user", res.getString("prenom_user"));
 				json.put("nom_user", res.getString("nom_user"));
 				json.put("mail_user", res.getString("mail_user"));
+				json.append("Test", tools.FriendsTools.getListFriend(id_user, stmt));
+				json.append("Test2", tools.MessageTools.listMessage(id_user, collection));
 			}
 		} catch(JSONException e) {
 			return tools.ErrorJSON.serviceRefused("JSON error : " + e.getMessage(), 100);
