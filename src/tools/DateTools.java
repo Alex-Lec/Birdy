@@ -7,4 +7,10 @@ public class DateTools {
 	public static Timestamp getCurrentDate() {
 		return new Timestamp(new Date().getTime());
 	}
+	
+	public static Timestamp getCurrentDatePlusXMinutes(int x) {
+		Timestamp timestamp = getCurrentDate();
+		timestamp.setTime(timestamp.getTime() + (x * 60 * 1000));
+		return timestamp;
+	}
 }

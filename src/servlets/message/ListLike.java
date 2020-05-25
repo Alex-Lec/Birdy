@@ -5,14 +5,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.bson.types.ObjectId;
 import org.json.JSONObject;
 
 @SuppressWarnings("serial")
-public class ListUserMessage extends HttpServlet {
+public class ListLike extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id_user = Integer.parseInt(request.getParameter("id_user"));
+		String key_session = request.getParameter("key_session");
+		ObjectId objectId = new ObjectId(request.getParameter("objectId"));
 		
-		JSONObject json = services.MessageServices.listMessage(id_user);
+		JSONObject json = services.MessageServices.listLike(key_session, objectId);
 		
 		response.setContentType("text/json");
 		response.getWriter().println(json.toString());

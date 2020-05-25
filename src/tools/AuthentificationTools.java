@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class AuthentificationTools {
 	public static boolean createSession(int id_user, String key_session, Statement stmt) throws SQLException {
-		String query = "INSERT INTO session VALUES ('" + id_user + "', '" + key_session + "', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP + 1000, FALSE)";   
+		String query = "INSERT INTO session VALUES ('" + id_user + "', '" + key_session + "', '" + tools.DateTools.getCurrentDate() + "', '" + tools.DateTools.getCurrentDatePlusXMinutes(10) + "', FALSE)";   
 		if (stmt.executeUpdate(query) == 1) {
 			return true;
 		}
@@ -45,6 +45,9 @@ public class AuthentificationTools {
 		String query = "SELECT * FROM session WHERE key_session = '" + key_session + "'";
 		try (ResultSet res = stmt.executeQuery(query)) {
 			if (res.next()) {
+				if (res.getInt("root_session") == 1) {
+					return true;
+				}
 				Date time_out = res.getTimestamp("date_fin_session");
 				if (time_out.getTime() - tools.DateTools.getCurrentDate().getTime() > 0) {
 					updateSessionTimeOut(key_session, stmt);

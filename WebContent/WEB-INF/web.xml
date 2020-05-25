@@ -53,8 +53,58 @@
 	</servlet>
 	
 	<servlet>
+		<servlet-name>RemoveMessage</servlet-name>
+		<servlet-class>servlets.message.RemoveMessage</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>EditMessage</servlet-name>
+		<servlet-class>servlets.message.EditMessage</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>ListUserMessage</servlet-name>
 		<servlet-class>servlets.message.ListUserMessage</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>GetMessage</servlet-name>
+		<servlet-class>servlets.message.GetMessage</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AddComment</servlet-name>
+		<servlet-class>servlets.message.AddComment</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RemoveComment</servlet-name>
+		<servlet-class>servlets.message.RemoveComment</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>EditComment</servlet-name>
+		<servlet-class>servlets.message.EditComment</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ListComment</servlet-name>
+		<servlet-class>servlets.message.ListComment</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AddLike</servlet-name>
+		<servlet-class>servlets.message.AddLike</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RemoveLike</servlet-name>
+		<servlet-class>servlets.message.RemoveLike</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ListLike</servlet-name>
+		<servlet-class>servlets.message.ListLike</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -108,8 +158,58 @@
 	</servlet-mapping>
 	
 	<servlet-mapping>
+		<servlet-name>RemoveMessage</servlet-name>
+		<url-pattern>/RemoveMessage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>EditMessage</servlet-name>
+		<url-pattern>/EditMessage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
 		<servlet-name>ListUserMessage</servlet-name>
 		<url-pattern>/ListUserMessage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GetMessage</servlet-name>
+		<url-pattern>/GetMessage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AddComment</servlet-name>
+		<url-pattern>/AddComment</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RemoveComment</servlet-name>
+		<url-pattern>/RemoveComment</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>EditComment</servlet-name>
+		<url-pattern>/EditComment</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListComment</servlet-name>
+		<url-pattern>/ListComment</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AddLike</servlet-name>
+		<url-pattern>/AddLike</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RemoveLike</servlet-name>
+		<url-pattern>/RemoveLike</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListLike</servlet-name>
+		<url-pattern>/ListLike</url-pattern>
 	</servlet-mapping>
 	
 	<resource-ref>
