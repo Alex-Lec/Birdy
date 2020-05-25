@@ -115,59 +115,6 @@
 					"response": []
 				},
 				{
-					"name": "CreateUser3",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "136eea22-37e3-4f48-a457-8e4396c97122",
-								"exec": [
-									"pm.test(\"response is ok\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/CreateUser?login_user=user_3&password_user=passsword_user_3&prenom_user=first_name_user_3&nom_user=last_name_user_3&mail_user=user_3@gmail.com",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"CreateUser"
-							],
-							"query": [
-								{
-									"key": "login_user",
-									"value": "user_3"
-								},
-								{
-									"key": "password_user",
-									"value": "passsword_user_3"
-								},
-								{
-									"key": "prenom_user",
-									"value": "first_name_user_3"
-								},
-								{
-									"key": "nom_user",
-									"value": "last_name_user_3"
-								},
-								{
-									"key": "mail_user",
-									"value": "user_3@gmail.com"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "DeleteUser1",
 					"event": [
 						{
@@ -424,47 +371,6 @@
 					"response": []
 				},
 				{
-					"name": "LoginUser3",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "990cc031-91fc-4310-9467-208284204c14",
-								"exec": [
-									"pm.test(\"response is ok\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/Login?login_user=user_3&password_user=password_user_3",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"Login"
-							],
-							"query": [
-								{
-									"key": "login_user",
-									"value": "user_3"
-								},
-								{
-									"key": "password_user",
-									"value": "password_user_3"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "LogoutUser1",
 					"event": [
 						{
@@ -579,88 +485,6 @@
 								{
 									"key": "id_user_2",
 									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CreateFriendshipUser1User3",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "77ffc19a-bbb1-4801-bc9c-e9f279035d13",
-								"exec": [
-									"pm.test(\"response is ok\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/AddFriend?id_user_1=1&id_user_2=3",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"AddFriend"
-							],
-							"query": [
-								{
-									"key": "id_user_1",
-									"value": "1"
-								},
-								{
-									"key": "id_user_2",
-									"value": "3"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CreateFriendshipUser2User1",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "c3e77732-5b81-4a30-a3da-c581ff3832db",
-								"exec": [
-									"pm.test(\"response is ok\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/AddFriend?id_user_1=2&id_user_2=1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"AddFriend"
-							],
-							"query": [
-								{
-									"key": "id_user_1",
-									"value": "2"
-								},
-								{
-									"key": "id_user_2",
-									"value": "1"
 								}
 							]
 						}
