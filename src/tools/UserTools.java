@@ -85,8 +85,8 @@ public class UserTools {
 				json.put("prenom_user", res.getString("prenom_user"));
 				json.put("nom_user", res.getString("nom_user"));
 				json.put("mail_user", res.getString("mail_user"));
-				json.append("Test", tools.FriendsTools.getListFriend(id_user, stmt));
-				json.append("Test2", tools.MessageTools.listMessage(id_user, collection));
+				json.append("Friends", tools.FriendsTools.getListFriend(id_user, stmt));
+				json.append("Messages", tools.MessageTools.listMessage(id_user, collection));
 			}
 		} catch(JSONException e) {
 			return tools.ErrorJSON.serviceRefused("JSON error : " + e.getMessage(), 100);
