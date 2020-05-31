@@ -2,6 +2,7 @@ package tools;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -192,5 +193,35 @@ public class MessageTools {
 			return true;
 		}
 		return false;
+	}
+	
+	public static JSONObject searchMessage(String keyword, MongoCollection<Document> collection) throws JSONException {
+		Document query = new Document().append("Text", Pattern.compile("(?i)" + Pattern.quote(keyword)));
+		MongoCursor<Document> cursor = collection.find(query).iterator();
+		
+		JSONObject json = new JSONObject();
+		
+		int cpt = 1;
+		while(cursor.hasNext()) {
+			json.put("Message n°" + cpt++, cursor.next());
+		}
+		
+		return json;
+	}
+	
+	public static JSONObject searchMessageFilterByFriends(String keyword, List<Integer> listFriends, MongoCollection<Document> collection) throws JSONException {
+		Document query = new Document().append("Text", Pattern.compile("(?i)" + Pattern.quote(keyword)));
+		MongoCursor<Document> cursor = collection.find(query).iterator();
+		
+		JSONObject json = new JSONObject();
+		
+		int cpt = 1;
+		while(cursor.hasNext()) {
+			Document res = cursor.next();
+			if (listFriends.contains(res.getInteger("id_user"))) {
+				json.put("Message n°" + cpt++, cursor.next());
+			}
+		}
+		return json;
 	}
 }

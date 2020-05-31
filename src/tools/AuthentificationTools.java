@@ -60,7 +60,7 @@ public class AuthentificationTools {
 	}
 	
 	public static boolean updateSessionTimeOut(String key_session, Statement stmt) throws SQLException {
-		String query = "UPDATE session SET date_fin_session = CURRENT_TIMESTAMP + 1000 WHERE key_session = '" + key_session + "'";
+		String query = "UPDATE session SET date_fin_session = '" + tools.DateTools.getCurrentDatePlusXMinutes(10) + "' WHERE key_session = '" + key_session + "'";
 		if (stmt.executeUpdate(query) == 1) {
 			return true;
 		}

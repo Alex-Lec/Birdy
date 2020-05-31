@@ -2,7 +2,9 @@ package tools;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement; 
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,5 +46,16 @@ public class FriendsTools {
 			}
 		}
 		return json;
+	}
+	
+	public static List<Integer> getFriendsIdList(int id_user, Statement stmt) throws SQLException, JSONException {
+		String query = "SELECT * FROM friendship WHERE id_user_1 = '" + id_user + "'";
+		List<Integer> list = new ArrayList<>();
+		try (ResultSet res = stmt.executeQuery(query)) {
+			while (res.next()) {
+				list.add(res.getInt("id_user_2"));
+			}
+		}
+		return list;
 	}
 }

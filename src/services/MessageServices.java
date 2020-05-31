@@ -3,6 +3,7 @@ package services;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -185,6 +186,27 @@ public class MessageServices {
 			return tools.MessageTools.getMessage(objectId, message);
 		} catch(JSONException e) {
 			return tools.ErrorJSON.serviceRefused("JSON error : " + e.getMessage(),  100);
+		}
+	}
+	
+	public static JSONObject searchMessage(String key_session, String keyword, boolean filterByFriends) {
+		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement()) {
+			if (tools.AuthentificationTools.isSessionActive(key_session, stmt)) {
+				int id = tools.AuthentificationTools.getUserId(key_session, stmt);
+				List<Integer> listFriends = tools.FriendsTools.getFriendsIdList(id, stmt);
+				MongoDatabase database = db.Database.getMongoDBConnection();
+				MongoCollection<Document> message = database.getCollection("message");
+				if (filterByFriends == true) {
+					return tools.MessageTools.searchMessageFilterByFriends(keyword, listFriends, message);
+				}
+				return tools.MessageTools.searchMessage(keyword, message);
+			}
+			return tools.ErrorJSON.serviceRefused("Arguments error", -1);
+		} catch(JSONException | SQLException e) {
+			if (JSONException.class == e.getClass()) {
+				return tools.ErrorJSON.serviceRefused("JSON error : " + e.getMessage(), 100);
+			}
+			return tools.ErrorJSON.serviceRefused("SQL error : " + e.getMessage(), 1000);
 		}
 	}
 }
