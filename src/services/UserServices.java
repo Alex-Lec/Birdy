@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.bson.Document;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.mongodb.client.MongoCollection;
@@ -68,7 +69,21 @@ public class UserServices {
 				return tools.UserTools.getProfile(tools.UserTools.getId(login_user, stmt), stmt, message);
 			}
 			return tools.ErrorJSON.serviceRefused("Arguments error", -1);
-		} catch(SQLException e) {
+		} catch(SQLException | JSONException e) {
+			if (e.getClass() == JSONException.class) {
+				return tools.ErrorJSON.serviceRefused("JSON error : " + e.getMessage(), 100);
+			}
+			return tools.ErrorJSON.serviceRefused("SQL error : " + e.getMessage(), 1000);
+		}
+	}
+	
+	public static JSONObject searchUser(String keyword) {
+		try (Connection c = db.Database.getMySQLConnection(); Statement stmt = c.createStatement()) {
+			return tools.UserTools.searchUser(keyword, stmt);
+		} catch(SQLException | JSONException e) {
+			if (e.getClass() == JSONException.class) {
+				return tools.ErrorJSON.serviceRefused("JSON error : " + e.getMessage(), 100);
+			}
 			return tools.ErrorJSON.serviceRefused("SQL error : " + e.getMessage(), 1000);
 		}
 	}

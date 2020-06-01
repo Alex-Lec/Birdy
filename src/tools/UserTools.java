@@ -75,7 +75,7 @@ public class UserTools {
 		return "";
 	}
 	
-	public static JSONObject getProfile(int id_user, Statement stmt, MongoCollection<Document> collection) throws SQLException {
+	public static JSONObject getProfile(int id_user, Statement stmt, MongoCollection<Document> collection) throws SQLException, JSONException {
 		String query = "SELECT * FROM user WHERE id_user = '" + id_user + "'";
 		JSONObject json = new JSONObject();
 		try (ResultSet res = stmt.executeQuery(query)) { 
@@ -88,8 +88,26 @@ public class UserTools {
 				json.append("Friends", tools.FriendsTools.getListFriend(id_user, stmt));
 				json.append("Messages", tools.MessageTools.listMessage(id_user, collection));
 			}
-		} catch(JSONException e) {
-			return tools.ErrorJSON.serviceRefused("JSON error : " + e.getMessage(), 100);
+		}
+		return json;
+	}
+	
+	public static JSONObject searchUser(String keyword, Statement stmt) throws SQLException, JSONException {
+		String query = "SELECT * FROM user WHERE (login_user LIKE '%" + keyword + "%') OR (prenom_user LIKE '%" + keyword + "%') OR (nom_user LIKE '%" + keyword + "%') OR (mail_user LIKE '%" + keyword + "%')";
+		JSONObject json = new JSONObject();
+		JSONObject temp = new JSONObject();
+		try (ResultSet res = stmt.executeQuery(query)) { 
+			int cpt = 1;
+			while (res.next()) {
+				temp.put("id_user", res.getInt("id_user"));
+				temp.put("login_user", res.getString("login_user"));
+				temp.put("prenom_user", res.getString("prenom_user"));
+				temp.put("nom_user", res.getString("nom_user"));
+				temp.put("mail_user", res.getString("mail_user"));
+				json.put("User n°" + cpt, temp);
+				temp = new JSONObject();
+				cpt++;
+			}
 		}
 		return json;
 	}

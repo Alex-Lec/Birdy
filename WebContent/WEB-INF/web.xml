@@ -23,6 +23,11 @@
 	</servlet>
 	
 	<servlet>
+		<servlet-name>SearchUser</servlet-name>
+		<servlet-class>servlets.user.SearchUser</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>Login</servlet-name>
 		<servlet-class>servlets.authentification.Login</servlet-class>
 	</servlet>
@@ -130,6 +135,11 @@
 	<servlet-mapping>
 		<servlet-name>ProfileUser</servlet-name>
 		<url-pattern>/ProfileUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>SearchUser</servlet-name>
+		<url-pattern>/SearchUser</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
